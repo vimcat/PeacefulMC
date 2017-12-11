@@ -1,0 +1,13 @@
+[{
+  "modid": "peacefulmc",
+  "name": "PeacefulMC",
+  "description": "Better Peaceful Mode!",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "authorList": ["Vimcat"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}]
