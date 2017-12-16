@@ -1,1 +1,8 @@
+language.name=English
+language.region=United States
+language.code=en_us
+
 item.peacefulmc.compost.name=Compost
+itemGroup.peacefulmc=PeacefulMC
+
+tile.peacefulmc.fossil.name=Fossil

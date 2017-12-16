@@ -1,0 +1,12 @@
+{
+    "parent": "block/cube",
+    "textures": {
+        "up": "peacefulmc:blocks/compost",
+        "down": "peacefulmc:blocks/compost",
+        "north": "peacefulmc:blocks/compost",
+        "south": "peacefulmc:blocks/compost",
+        "west": "peacefulmc:blocks/compost",
+        "east": "peacefulmc:blocks/compost",
+        "particle": "peacefulmc:blocks/compost"
+    }
+}

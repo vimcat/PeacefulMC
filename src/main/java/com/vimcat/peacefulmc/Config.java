@@ -1,9 +1,8 @@
-package com.vimcat.peacefulmc.config;
+package com.vimcat.peacefulmc;
 
+import com.vimcat.peacefulmc.proxy.CommonProxy;
 import net.minecraftforge.common.config.Configuration;
 import org.apache.logging.log4j.Level;
-import com.vimcat.peacefulmc.PeacefulMC;
-import com.vimcat.peacefulmc.proxy.CommonProxy;
 
 public class Config {
   private static final String CATEGORY_GENERAL = "general";
@@ -15,8 +14,8 @@ public class Config {
       cfg.load();
       initGeneralConfig(cfg);
       initDimensionConfig(cfg);
-    } catch (Exception e) {
-      PeacefulMC.logger.log(Level.ERROR, "Problem loading config file!", e);
+    } catch (Exception event) {
+      PeacefulMC.logger.log(Level.ERROR, "Problem loading config file", event);
     } finally {
       if (cfg.hasChanged()) {
         cfg.save();
@@ -26,9 +25,11 @@ public class Config {
 
   private static void initGeneralConfig(Configuration cfg) {
     cfg.addCustomCategoryComment(CATEGORY_GENERAL, "General configuration");
+
   }
 
-  private static void initDimensionConfig(Configuration cfg) {
+  public static void initDimensionConfig(Configuration cfg) {
     cfg.addCustomCategoryComment(CATEGORY_DIMENSIONS, "Dimension configuration");
+
   }
 }

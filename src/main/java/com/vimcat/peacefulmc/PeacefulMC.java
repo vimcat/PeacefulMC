@@ -1,16 +1,13 @@
 package com.vimcat.peacefulmc;
 
-import com.vimcat.peacefulmc.blocks.BlockRegistry;
 import com.vimcat.peacefulmc.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+import net.minecraftforge.fml.common.event.*;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 
@@ -22,35 +19,36 @@ public class PeacefulMC {
   public static final String VERSION = "0.0.1";
   public static final String MIN_FORGE_VERSION = "11.16.0.1865";
 
-  @SidedProxy(clientSide = "com.vimcat.peacefulmc.proxy.ClientProxy", serverSide = "com.vimcat.peacefulmc.proxy.ServerProxy")
+  @SidedProxy(clientSide = "com.vimcat.peacefulmc.proxy.ClientProxy", serverSide = "com.vimcat.peacefulmc.proxy.CommonProxy")
   public static CommonProxy proxy;
 
-  @Mod.Instance
+  @Mod.Instance(PeacefulMC.MODID)
   public static PeacefulMC instance;
-
-  public static Logger logger;
-
-  public static final CreativeTabs modTab = new CreativeTabs(PeacefulMC.MODID) {
-    @Override
-    @SideOnly(Side.CLIENT)
-    public ItemStack getTabIconItem() {
-      return new ItemStack(BlockRegistry.compostItemBlock);
-    }
-  };
+  public static Logger logger = LogManager.getLogger(PeacefulMC.MODID);
 
   @Mod.EventHandler
-  public void preInit(FMLPreInitializationEvent e) {
-    logger = e.getModLog();
-    proxy.preInit(e);
+  public void onServerStarting(FMLServerStartingEvent event) {
+    proxy.onServerStarting(event);
   }
 
   @Mod.EventHandler
-  public void init(FMLInitializationEvent e) {
-    proxy.init(e);
+  public void preInit(FMLPreInitializationEvent event) {
+    logger = event.getModLog();
+    proxy.onPreInit(event);
   }
 
   @Mod.EventHandler
-  public void postInit(FMLPostInitializationEvent e) {
-    proxy.postInit(e);
+  public void onInit(FMLInitializationEvent event) {
+    proxy.onInit(event);
+  }
+
+  @Mod.EventHandler
+  public void onPostInit(FMLPostInitializationEvent event) {
+    proxy.onPostInit(event);
+  }
+
+  @Mod.EventHandler
+  public void onServerStopping(FMLServerStoppingEvent event) {
+    proxy.onServerStopping(event);
   }
 }
