@@ -1,5 +1,6 @@
 package com.vimcat.peacefulmc.blocks;
 
+import com.vimcat.peacefulmc.PeacefulMC;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -38,5 +39,6 @@ public class FossilOre extends Block {
     this.setSoundType(SoundType.STONE);
     this.setHarvestLevel("pickaxe", 0);
     this.setHardness(1.0F);
+    setCreativeTab(PeacefulMC.modTab);
   }
 }

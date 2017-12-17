@@ -14,7 +14,6 @@ public class BlockRegistry {
   public static final List<Block> blocks = new ArrayList<Block>();
 
   // FossilOre Block
-  public static final String fossilOreItemName = "fossil";
   public static Block fossilOre;
   public static ItemBlock fossilOreItemBlock;
 
