@@ -1,7 +1,7 @@
 package com.vimcat.peacefulmc.proxy;
 
-import com.vimcat.peacefulmc.ModBlocks;
-import com.vimcat.peacefulmc.ModItems;
+import com.vimcat.peacefulmc.ItemModels;
+import com.vimcat.peacefulmc.ItemRenderRegister;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.fml.common.event.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,12 +13,13 @@ public class ClientProxy extends CommonProxy {
 
   public void onPreInit(FMLPreInitializationEvent event) {
     super.onPreInit(event);
+    ItemModels.preInit();
   }
 
   public void onInit(FMLInitializationEvent event) {
     super.onInit(event);
-
-
+    //ItemModels.init();
+    //ItemRenderRegister.registerItemRenderer();
   }
 
   public void onPostInit(FMLPostInitializationEvent event) {
@@ -27,11 +28,5 @@ public class ClientProxy extends CommonProxy {
 
   public void onServerStopping(FMLServerStoppingEvent event) {
     super.onServerStopping(event);
-  }
-
-  @SubscribeEvent
-  public static void registerModels(ModelRegistryEvent event) {
-    ModBlocks.initModels();
-    ModItems.initModels();
   }
 }

@@ -1,7 +1,5 @@
 package com.vimcat.peacefulmc.blocks;
 
-import com.vimcat.peacefulmc.ModItems;
-import com.vimcat.peacefulmc.PeacefulMC;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -33,18 +31,12 @@ public class FossilOre extends Block {
    }
   }
 
+  public static final String registryName = "fossil";
+
   public FossilOre() {
     super(Material.ROCK);
     this.setSoundType(SoundType.STONE);
     this.setHarvestLevel("pickaxe", 0);
     this.setHardness(1.0F);
-    this.setUnlocalizedName(PeacefulMC.MODID + ".fossil");
-    setRegistryName("fossil");
-    this.setCreativeTab(ModItems.peacefulMC);
-  }
-
-  @SideOnly(Side.CLIENT)
-  public void initModel() {
-    ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName(), "inventory"));
   }
 }

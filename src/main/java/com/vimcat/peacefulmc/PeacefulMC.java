@@ -7,6 +7,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -21,6 +23,14 @@ public class PeacefulMC {
 
   @SidedProxy(clientSide = "com.vimcat.peacefulmc.proxy.ClientProxy", serverSide = "com.vimcat.peacefulmc.proxy.CommonProxy")
   public static CommonProxy proxy;
+
+  public static final CreativeTabs modTab = new CreativeTabs(MODID) {
+    @Override
+    @SideOnly(Side.CLIENT)
+    public ItemStack getTabIconItem() {
+      return new ItemStack(Items.SLIME_BALL);
+    }
+  };
 
   @Mod.Instance(PeacefulMC.MODID)
   public static PeacefulMC instance;

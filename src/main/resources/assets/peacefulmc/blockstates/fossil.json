@@ -1,11 +1,10 @@
 {
   "forge_marker": 1,
   "defaults": {
+    "model": "peacefulmc:fossil",
     "textures": {
       "all": "peacefulmc:blocks/fossil"
-    },
-    "model": "cube_all",
-    "uvlock": true
+    }
   },
   "variants": {
     "normal": [{}],

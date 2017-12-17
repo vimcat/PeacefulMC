@@ -1,6 +1,6 @@
 package com.vimcat.peacefulmc.items;
 
-import com.vimcat.peacefulmc.ModBlocks;
+import com.vimcat.peacefulmc.BlockRegistry;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -20,7 +20,7 @@ public class WorldGen implements IWorldGenerator {
   private WorldGenerator fossilOre;
 
   public WorldGen() {
-    this.fossilOre = new WorldGenMinable(ModBlocks.FossilOre.getDefaultState(), 7);
+    this.fossilOre = new WorldGenMinable(BlockRegistry.fossilOre.getDefaultState(), 7);
   }
 
   private void runGenerator(WorldGenerator generator, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight) {
