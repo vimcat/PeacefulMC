@@ -3,6 +3,9 @@ language.region=United States
 language.code=en_us
 
 item.peacefulmc.compost.name=Compost
+item.goldenroditem.name=Golden Rod
+item.dollseyesitem.name=Doll's Eyes
+item.dollseyesseeditem.name=Doll's Eyes Seeds
 itemGroup.peacefulmc=PeacefulMC
 
 tile.fossil.name=Fossil

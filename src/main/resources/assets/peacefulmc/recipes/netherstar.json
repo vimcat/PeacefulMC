@@ -7,13 +7,16 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:emerald_block"
+      "type": "forge:ore_dict",
+      "ore": "blockEmerald"
     },
     "Y": {
-      "item": "minecraft:diamond_block"
+      "type": "forge:ore_dict",
+      "ore": "blockDiamond"
     },
     "Z": {
-      "item": "minecraft:ender_pearl"
+      "type": "forge:ore_dict",
+      "ore": "enderpearl"
     }
   },
   "result": {

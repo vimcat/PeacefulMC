@@ -1,5 +1,6 @@
 package com.vimcat.peacefulmc;
 
+import com.vimcat.peacefulmc.blocks.CropBlock;
 import com.vimcat.peacefulmc.blocks.FossilOre;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -25,7 +26,13 @@ public class ItemModels {
   }
 
   private static void defineItemModels() {
-    //registerItemModels(ItemRegistry.items.get("fossil"), new ItemModelList("ores/").add(0, "fossil"));
+    for (CropBlock crop : CropRegistry.getCrops().values()) {
+      registerItemModels(getItem(crop), new ItemModelList("crops/")
+          .add(0, crop.getStageId(0))
+          .add(1, crop.getStageId(1))
+          .add(2, crop.getStageId(2))
+          .add(3, crop.getStageId(3)));
+    }
   }
 
   private static void registerItemModels(Item item, ItemModelList list) {

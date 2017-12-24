@@ -1,8 +1,7 @@
 package com.vimcat.peacefulmc.proxy;
 
-import com.vimcat.peacefulmc.BlockRegistry;
-import com.vimcat.peacefulmc.Config;
-import com.vimcat.peacefulmc.ItemRegistry;
+import com.vimcat.peacefulmc.*;
+import com.vimcat.peacefulmc.items.GeneralOreRegistry;
 import com.vimcat.peacefulmc.items.WorldGen;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
@@ -14,15 +13,12 @@ import java.io.File;
 
 @Mod.EventBusSubscriber
 public class CommonProxy {
-  public static Configuration config;
   public void onServerStarting(FMLServerStartingEvent event) {
 
   }
 
   public void onPreInit(FMLPreInitializationEvent event) {
-    File directory = event.getModConfigurationDirectory();
-    config = new Configuration(new File(directory.getPath(), "peacefulmc.cfg"));
-    Config.readConfig();
+    CropRegistry.registerCrops();
     BlockRegistry.initBlockRegistry();
     MinecraftForge.EVENT_BUS.register(new BlockRegistry());
     ItemRegistry.registerItems();
@@ -30,9 +26,6 @@ public class CommonProxy {
   }
 
   public void onInit(FMLInitializationEvent event) {
-    if (config.hasChanged()) {
-      config.save();
-    }
     GameRegistry.registerWorldGenerator(new WorldGen(), 0);
     onBlocksAndItemsLoaded();
   }
@@ -46,6 +39,8 @@ public class CommonProxy {
   }
 
   public void onBlocksAndItemsLoaded() {
-
+    GeneralOreRegistry.initOreRegistry();
+    RecipeRegistry.registerRecipes();
+    SeedDropRegistry.getSeedDrops();
   }
 }

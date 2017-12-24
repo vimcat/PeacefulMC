@@ -4,6 +4,7 @@ import com.vimcat.peacefulmc.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.*;
@@ -36,6 +37,8 @@ public class PeacefulMC {
   public static PeacefulMC instance;
   public static Logger logger = LogManager.getLogger(PeacefulMC.MODID);
 
+  public static Config config;
+
   @Mod.EventHandler
   public void onServerStarting(FMLServerStartingEvent event) {
     proxy.onServerStarting(event);
@@ -43,6 +46,7 @@ public class PeacefulMC {
 
   @Mod.EventHandler
   public void preInit(FMLPreInitializationEvent event) {
+    config = new Config(new Configuration(event.getSuggestedConfigurationFile()));
     logger = event.getModLog();
     proxy.onPreInit(event);
   }

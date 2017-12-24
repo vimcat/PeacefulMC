@@ -7,10 +7,12 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:emerald"
+      "type": "forge:ore_dict",
+      "ore": "oreEmerald"
     },
     "Y": {
-      "item": "minecraft:slime_ball"
+      "type": "forge:ore_dict",
+      "ore": "slimeball"
     }
   },
   "result": {

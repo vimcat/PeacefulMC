@@ -1,0 +1,6 @@
+{
+  "parent": "block/crop",
+  "textures": {
+    "crop": "peacefulmc:blocks/dollseyes_stage_0"
+  }
+}

@@ -41,4 +41,8 @@ public class FossilOre extends Block {
     this.setHardness(1.0F);
     setCreativeTab(PeacefulMC.modTab);
   }
+
+  public void initModel(){
+    ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(this), 0, new ModelResourceLocation(getRegistryName().toString(),"inventory"));
+  }
 }

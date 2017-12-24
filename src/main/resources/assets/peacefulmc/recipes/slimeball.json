@@ -7,12 +7,12 @@
   ],
   "key": {
     "X": {
-      "item": "minecraft:dye",
-      "data": 15
+      "type": "forge:ore_dict",
+      "ore": "dyeWhite"
     },
     "Y": {
-      "item": "minecraft:dye",
-      "data": 2
+      "type": "forge:ore_dict",
+      "ore": "dyeGreen"
     }
   },
   "result": {
